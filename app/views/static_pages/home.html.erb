@@ -1,0 +1,23 @@
+<div class='container text-center'>
+  <h1 class="display-1">Bienvenue dans le monde des potins</h1>
+</div></br></br>
+
+<div class='container'>
+  <div class='card-deck'>
+    <div class="row">
+        <% params[:potins].each do |potin| %> 
+          <div class="card border-primary mb-3" style="min-width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%= potin.title %></h5>
+                <p class="card-text">Un potin de <%= potin.user.first_name %>.</br>
+                  <% id = potin.id %>
+                  <%= link_to 'Clique pour en savoir plus.', gossip_path(@id = id) %>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Mise à jour: <%= potin.updated_at %></small>
+            </div>    
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
